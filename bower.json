@@ -1,0 +1,20 @@
+{
+  "name": "wikiview",
+  "homepage": "https://github.com/muyaszed/wikisearch",
+  "description": "Wiki search tool web app",
+  "main": "index.html",
+  "authors": [
+    "Yazed Jamal"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
