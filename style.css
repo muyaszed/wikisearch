@@ -1,0 +1,26 @@
+body {
+    background: blue;
+}
+.container {
+    
+    height: 100vh;
+}
+
+#search-area {
+    position: relative;
+    background: #000;
+    width: 300px;
+    margin: 0;
+    left: 50vw;
+    margin-left: -150px;
+    top: 50vh;
+    
+}
+
+#search-area input {
+    width: 100%;
+}
+
+#result-area {
+    position: relative;
+}

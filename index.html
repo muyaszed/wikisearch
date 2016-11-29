@@ -11,13 +11,25 @@
 </head>
 
 <body>
-    <form method="post">
-        <input id="search" type="text">
+   
+   <div class="container">
+      <div id="search-area">
+          <form method="post">
+                <input id="search" type="text">
+
+            </form>
+      </div>
         
-    </form>
-    <div id="show-results"></div>
+      <div id="result-area">
+        <div id="show-results"></div>      
+      </div>       
+       
+   </div>
+    
+    
     
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="app.js"> </script>
 </body>
 </html>
