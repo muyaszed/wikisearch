@@ -44,7 +44,7 @@ $(document).ready(function(){
             console.log(searchResult);
             
             //move search box
-            afterSearch();
+            afterSearch("add");
  
             //call a function to append result to index.html
             displaySearch(searchResult);
@@ -60,7 +60,7 @@ $(document).ready(function(){
         var content = "";
         for(i=0; i<results.length; i++) {
 //            console.log(pages[prop].title);
-            content += "<a href='https://en.wikipedia.org/?curid=" + results[i].pageid + "' target='blank'><div class='search-item'><h1>" + results[i].title + "</h1><br><br><p>" + results[i].snippet + "</p></div></a>"
+            content += "<a href='https://en.wikipedia.org/?curid=" + results[i].pageid + "' target='blank'><div class='search-item'><h1>" + results[i].title + "</h1><p>" + results[i].snippet + "</p></div></a>"
         }
 //        
         
@@ -69,32 +69,56 @@ $(document).ready(function(){
     };
     
 /*************front end effects*************/
+	
+	
     
+    //make search box draggable
+    $(".search-area").draggable({
+		cancel: null
+	});
+	
+	$("#search").click(function() {
+		$(this).focus();
+	});
     
-//search box shifting
+    //search box shifting
 
-function afterSearch() {
-    var searchBoxOption = {
-        duration: 300,
-        easing: "linear"
+    function afterSearch(status) {
+        var searchBoxOption = {
+            duration: 300,
+            easing: "linear"
+        }
+		if(status === "add") {
+			$(".search-area").addClass("after-search", searchBoxOption);	
+		}else if(status === "remove") {
+			$(".search-area").removeClass("after-search", searchBoxOption);
+		}
+        
     }
 
-    $(".search-area").addClass("after-search", searchBoxOption);
-}
+    //input focus animation
+
+    var boxInputOption = {
+        duration: 500,
+        easing: "swing"
+    }
+
+    $("#search").focus(function() {
+        $("#search").addClass("box-input", boxInputOption);
+        setTimeout(function() {
+                   $("#cross").css("display", "block")
+                   }, 500);
+    });
     
-//input on focus animation
+    //close search box
     
-var boxInputOption = {
-    duration: 500,
-    easing: "swing"
-}
-    
-$("#search").focus(function() {
-    $("#search").addClass("box-input", boxInputOption);
-    setTimeout(function() {
-               $("#cross").css("display", "block")
-               }, 500);
-});
+    $("#cross").click(function() {
+        $("#cross").css("display", "none");
+        $("#search").removeClass("box-input", boxInputOption).val("");
+		$("#show-results").hide("slide", {direction: "down"}, 1000);
+		afterSearch("remove");
+                   
+    });
 
     
 });

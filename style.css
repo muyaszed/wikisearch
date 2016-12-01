@@ -3,7 +3,7 @@
 input:focus {outline:0;}
 
 body {
-    background: blue;
+    background: #E87162;
 }
 .container {
     
@@ -31,11 +31,12 @@ body {
     width: 50px;
     height: 50px;
     border: solid #F44336;
-    background: blue;
-    color: #FF5722;
+    background: #E87162;
+    color: #F2EEEA;
     font-size: 1.4em;
     text-align: center;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .box-input {
@@ -44,13 +45,23 @@ body {
     padding-right: 50px;
 }
 
+.random {
+	margin-top: 10px;
+	
+}
+
+.random a {
+	text-decoration: none;
+	color: #F2EEEA;
+}
+
 .cross {
    position: relative;
     
     cursor: pointer;
     width: 35px;
     height: 35px;
-    left: 64vw;
+    left: 58vw;
     display: none;
     bottom: 45px;
 }
@@ -59,7 +70,7 @@ body {
   content: ' ';
   height: 33px;
   width: 2px;
-  background-color: #000;
+  background-color: #5F5E5D;
 
 }
 
@@ -76,8 +87,9 @@ body {
     top: 10vh;
 }
 
-#show-results a {
+#show-results a, a:visited {
     text-decoration: none;
+	color: #5F5E5D;
 }
 
 #result-area {
@@ -89,4 +101,47 @@ body {
 
 #result-area .search-item {
     background: #fff;
+}
+
+ .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #E87162;
+    color: #F2EEEA;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+	 border: solid #F44336;
+}
+
+ .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #F44336 transparent transparent transparent;
+}
+
+#search:hover + .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.search-item {
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.search-item p {
+	background: #B4B2AE;
 }
