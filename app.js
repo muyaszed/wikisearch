@@ -11,7 +11,7 @@ $(document).ready(function(){
         //stop form submitting and page refresh
       event.preventDefault();
       myQuery = $("#search").val();
-        console.log(myQuery);
+        
         
         //gathers api data from wikipidia
         $.ajax({
@@ -26,8 +26,7 @@ $(document).ready(function(){
         success: function (data, textStatus, jqXHR) {
             var searchResult = data.query.search;
             var dataResult = data.query.pages;
-            console.log(searchResult);
-            console.log(dataResult);
+            
             
             //rearrange required data
             for(i=0; i<searchResult.length; i++) {
@@ -41,7 +40,7 @@ $(document).ready(function(){
                 }
 
             }
-            console.log(searchResult);
+            
             
             //move search box
             afterSearch("add");
@@ -59,12 +58,12 @@ $(document).ready(function(){
     function displaySearch(results) {
         var content = "";
         for(i=0; i<results.length; i++) {
-//            console.log(pages[prop].title);
+//            
             content += "<a href='https://en.wikipedia.org/?curid=" + results[i].pageid + "' target='blank'><div class='search-item'><h1>" + results[i].title + "</h1><p>" + results[i].snippet + "</p></div></a>"
         }
 //        
         
-        console.log(content);
+      
         $("#show-results").html(content).effect("slide", {direction: "down"}, 1000);
     };
     
